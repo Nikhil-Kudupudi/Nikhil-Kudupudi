@@ -2,7 +2,8 @@
 
 ### Hi there 👋 
 
- I'm an aspiring developer curious about new technologies and gadgets        <img width=auto  alt="hlo" src="https://lottiefiles.com/18123-developer">
+ I'm an aspiring developer curious about new technologies and gadgets  
+ <img width=auto  alt="hlo" src="https://github.com/Nikhil-Kudupudi/Nikhil-Kudupudi/blob/main/devintro.gif">
  
  # Nikhil Kudupudi 
  [Gmail](nikhilkudupudi@gmail.com)
