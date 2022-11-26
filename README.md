@@ -1,18 +1,13 @@
 [![@nikhilkudupudi's Holopin board](https://holopin.me/nikhilkudupudi)](https://holopin.io/@nikhilkudupudi)
 
-### Hi there 👋
+### Hi there 👋 
 
-<!--
-**Nikhil-Kudupudi/Nikhil-Kudupudi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+ I'm an aspiring developer curious about new technologies and gadgets        <img width=auto  alt="hlo" src="https://lottiefiles.com/18123-developer">
+ 
+ # Nikhil Kudupudi 
+ [Gmail](nikhilkudupudi@gmail.com)
+ #### [LinkedIn](https://www.linkedin.com/in/kudupudi-nikhil-7aa0651b8/)
+ 
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+ 
+ 
