@@ -3,8 +3,9 @@
 ### Hi there 👋 
 
  I'm an aspiring developer curious about upcoming technologies and gadgets 
- Looking forward to work as an developer in web or datascience field.
- <img width=auto  alt="hlo" src="https://github.com/Nikhil-Kudupudi/Nikhil-Kudupudi/blob/main/deveintro.gif">
+ Looking forward to work as an developer in web development and datascience.
+ 
+ <img width=300   alt="hlo" src="https://github.com/Nikhil-Kudupudi/Nikhil-Kudupudi/blob/main/deveintro.gif">
  
 
 ## Contact Me 
@@ -32,7 +33,7 @@
 - - DotNet API
 - Object Oriented Programming :computer:
 - Github 🔗
-- Sonarqube
+
 
 
 # Achievements
