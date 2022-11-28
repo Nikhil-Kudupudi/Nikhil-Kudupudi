@@ -7,8 +7,11 @@
  
  # Nikhil Kudupudi 
  [Gmail](nikhilkudupudi@gmail.com)
- #### [LinkedIn](https://www.linkedin.com/in/kudupudi-nikhil-7aa0651b8/)
+ [LinkedIn](https://www.linkedin.com/in/kudupudi-nikhil-7aa0651b8/)
  
+ #technical skills
+ 
+  
 
  
  
