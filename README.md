@@ -1,18 +1,17 @@
 
-
+# Nikhil Kudupudi 
 ### Hi there 👋 
 
  I'm an aspiring developer curious about upcoming technologies and gadgets  
  <img width=auto  alt="hlo" src="https://github.com/Nikhil-Kudupudi/Nikhil-Kudupudi/blob/main/deveintro.gif">
  
- # Nikhil Kudupudi 
+
+## Contact Me 
  [Gmail](nikhilkudupudi@gmail.com) :email: 
- 
  [LinkedIn](https://www.linkedin.com/in/kudupudi-nikhil-7aa0651b8/)
  
 ## Technical Skills
-
-- python  🐍   
+- python  🐍                                        <img height=auto alt="profile" src="profile-3dimg.png" align="right"> 
  - - Machine Learning 🤖
  - - Deep Learning  🤖
  - - Programming ⌨️ 
@@ -49,9 +48,10 @@
 
 ### Stats
 
-<img 
-   src="https://github-readme-stats.vercel.app/api?username=Nikhil-Kudupudi&show_icons=true&theme=cobalt2"
-/>
+<img src="https://github-readme-stats.vercel.app/api?username=Nikhil-Kudupudi&show_icons=true&theme=cobalt2"/> 
 
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Nikhil-Kudupudi&hide=jupyter%20notebook,dart&langs_count=10&theme=aura)](https://github.com/anuraghazra/github-readme-stats)
  
+
+
  
