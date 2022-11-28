@@ -34,18 +34,18 @@
 - Github 🔗
 - Sonarqube
 
-## Interests
-- Listening to Music 🎵
-- Explore about new tech ♾️
-- Drawing 🎨
-- Cooking 👨‍🍳
+
 # Achievements
 - software virtual experience from JP Morgn & Chase Co.
 - 5 * programmer in python - Hackerrank
 - Open Source Contribution
 [![@nikhilkudupudi's Holopin board](https://holopin.me/nikhilkudupudi)](https://holopin.io/@nikhilkudupudi)
  
-  
+## Interests
+- Listening to Music 🎵
+- Explore about new tech ♾️
+- Drawing 🎨
+- Cooking 👨‍
 
  
  
