@@ -47,5 +47,11 @@
 - Drawing 🎨
 - Cooking 👨‍
 
+### Stats
+
+<img 
+   src="https://github-readme-stats.vercel.app/api?username=Nikhil-Kudupudi&show_icons=true&theme=tokyonight" 
+/>
+
  
  
