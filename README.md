@@ -6,7 +6,8 @@
  <img width=auto  alt="hlo" src="https://github.com/Nikhil-Kudupudi/Nikhil-Kudupudi/blob/main/deveintro.gif">
  
  # Nikhil Kudupudi 
- [Gmail](nikhilkudupudi@gmail.com)
+ [Gmail](nikhilkudupudi@gmail.com) :email: 
+ 
  [LinkedIn](https://www.linkedin.com/in/kudupudi-nikhil-7aa0651b8/)
  
 ## Technical Skills
@@ -29,7 +30,7 @@
 - C#
 - - DotNet MVC
 - - DotNet API
-- Object Oriented Programming 🖊️
+- Object Oriented Programming :computer:
 - Github 🔗
 - Sonarqube
 
