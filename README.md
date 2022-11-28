@@ -11,33 +11,33 @@
  
 ## Technical Skills
 
-- python    
- - - Machine Learning 
- - - Deep Learning
- - - Programming
-- Core Java 
- - - Spring Boot
- - - Spring API
- - - Spring Microservices
+- python  🐍   
+ - - Machine Learning 🤖
+ - - Deep Learning  🤖
+ - - Programming ⌨️ 
+- Core Java ♨️
+ - - Spring Boot 
+ - - Spring API ☁️
+ - - Spring Microservices 📦
 - HMTL 
 - CSS  
-- - Bootstrap
+- - Bootstrap 💿
 - Javascript
-- - React JS
-- MongoDB
-- SQL
+- - React JS ⚛️
+- MongoDB 🍃
+- SQL 
 - C#
 - - DotNet MVC
 - - DotNet API
-- Object Oriented Programming
-- Github
+- Object Oriented Programming 🖊️
+- Github 🔗
 - Sonarqube
 
 ## Interests
-- Listening to Music
-- Explore about new tech
-- Drawing
-- Cooking
+- Listening to Music 🎵
+- Explore about new tech ♾️
+- Drawing 🎨
+- Cooking 👨‍🍳
 # Achievements
 - software virtual experience from JP Morgn & Chase Co.
 - 5 * programmer in python - Hackerrank
