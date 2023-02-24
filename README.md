@@ -2,7 +2,7 @@
 # Nikhil Kudupudi 
 ### Hi there 👋 
 
- I'm an aspiring developer curious about upcoming technologies and gadgets 
+ I'm  backend developer curious about upcoming technologies and gadgets 
  Looking forward to work as an developer in web development and datascience.
  
  <img width=300   alt="hlo" src="https://github.com/Nikhil-Kudupudi/Nikhil-Kudupudi/blob/main/deveintro.gif">
