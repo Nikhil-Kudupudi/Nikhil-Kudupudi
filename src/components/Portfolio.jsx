@@ -146,7 +146,7 @@ const Portfolio = () => {
 
   return (
     <div className={`min-h-screen overflow-x-hidden transition-colors duration-300 ${
-      theme === 'dark' ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900'
+      theme === 'dark' ? 'bg-gray-950 text-white' : 'bg-slate-100 text-gray-900'
     }`}>
       {/* Add Particle Network */}
       <ParticleNetwork theme={theme} />
@@ -156,7 +156,7 @@ const Portfolio = () => {
         <div className={`absolute inset-0 transition-colors duration-300 ${
           theme === 'dark' 
             ? 'bg-gradient-to-br from-blue-950/20 via-gray-950 to-purple-950/20' 
-            : 'bg-gradient-to-br from-blue-100/30 via-gray-50 to-purple-100/30'
+            : 'bg-gradient-to-br from-blue-200/20 via-slate-100 to-purple-200/20'
         }`} />
         <div 
           className="absolute inset-0 opacity-30"
@@ -397,15 +397,15 @@ const Portfolio = () => {
             </span>
           </h2>
           <div className="max-w-4xl mx-auto">
-            <div className={`backdrop-blur-lg rounded-2xl p-8 md:p-12 border ${
+            <div className={`backdrop-blur-lg rounded-2xl p-8 md:p-12 border transition-all duration-300 ${
               theme === 'dark'
                 ? 'bg-gray-900/50 border-gray-800'
-                : 'bg-white/70 border-gray-200 shadow-lg'
+                : 'bg-white/80 border-gray-300 shadow-xl'
             }`} 
                  style={{
                    boxShadow: theme === 'dark' 
                      ? 'inset 0 0 0 1px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)'
-                     : 'inset 0 0 0 1px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.1)'
+                     : '0 10px 40px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(59, 130, 246, 0.2)'
                  }}>
               <p className={`text-lg leading-relaxed mb-6 ${
                 theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
@@ -414,8 +414,8 @@ const Portfolio = () => {
               </p>
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center group">
-                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform ${
-                    theme === 'light' && 'shadow-md'
+                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                    theme === 'light' && 'border border-blue-200 shadow-lg'
                   }`}>
                     <Database className="w-10 h-10 text-cyan-500" />
                   </div>
@@ -425,8 +425,8 @@ const Portfolio = () => {
                   }`}>Scalable pipelines & ETL</p>
                 </div>
                 <div className="text-center group">
-                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:scale-110 transition-transform ${
-                    theme === 'light' && 'shadow-md'
+                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                    theme === 'light' && 'border border-purple-200 shadow-lg'
                   }`}>
                     <Brain className="w-10 h-10 text-purple-500" />
                   </div>
@@ -436,8 +436,8 @@ const Portfolio = () => {
                   }`}>ML & NLP solutions</p>
                 </div>
                 <div className="text-center group">
-                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform ${
-                    theme === 'light' && 'shadow-md'
+                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                    theme === 'light' && 'border border-green-200 shadow-lg'
                   }`}>
                     <BarChart3 className="w-10 h-10 text-green-500" />
                   </div>
@@ -488,7 +488,7 @@ const Portfolio = () => {
                 className={`group relative backdrop-blur-lg rounded-2xl overflow-hidden border transition-all duration-300 ${
                   theme === 'dark'
                     ? 'bg-gray-900/50 border-gray-800 hover:border-cyan-500/50'
-                    : 'bg-white/70 border-gray-200 hover:border-cyan-500/50 shadow-lg hover:shadow-xl'
+                    : 'bg-white/90 border-gray-300 hover:border-cyan-500 shadow-xl hover:shadow-2xl'
                 }`}
               >
                 <div className="p-8">
@@ -496,7 +496,11 @@ const Portfolio = () => {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-cyan-600 rounded-full text-sm"
+                        className={`px-3 py-1 rounded-full text-sm font-medium ${
+                          theme === 'dark'
+                            ? 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-cyan-300'
+                            : 'bg-gradient-to-r from-blue-500/30 to-cyan-500/30 text-cyan-700 border border-cyan-300'
+                        }`}
                       >
                         {tag}
                       </span>
@@ -535,10 +539,10 @@ const Portfolio = () => {
                         {project.tech.map((tech) => (
                           <span
                             key={tech}
-                            className={`px-2 py-1 rounded text-xs ${
+                            className={`px-2 py-1 rounded text-xs transition-all duration-300 ${
                               theme === 'dark'
                                 ? 'bg-gray-800 text-gray-300'
-                                : 'bg-gray-200 text-gray-700'
+                                : 'bg-gray-700 text-gray-100'
                             }`}
                           >
                             {tech}
@@ -581,10 +585,10 @@ const Portfolio = () => {
           </h2>
           <div className="max-w-5xl mx-auto space-y-8">
             {Object.entries(techStack).map(([category, skills]) => (
-              <div key={category} className={`backdrop-blur-lg rounded-2xl p-6 border ${
+              <div key={category} className={`backdrop-blur-lg rounded-2xl p-6 border transition-all duration-300 ${
                 theme === 'dark'
                   ? 'bg-gray-900/50 border-gray-800'
-                  : 'bg-white/70 border-gray-200 shadow-lg'
+                  : 'bg-white/90 border-gray-300 shadow-xl'
               }`}>
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
                   {category === 'Data Engineering' && <Database className="w-6 h-6 mr-3 text-cyan-500" />}
@@ -600,7 +604,7 @@ const Portfolio = () => {
                       className={`px-4 py-2 rounded-lg transition-all duration-300 border relative overflow-hidden group cursor-pointer ${
                         theme === 'dark'
                           ? 'bg-gray-800/50 text-gray-300 hover:text-white border-gray-700 hover:border-transparent'
-                          : 'bg-gray-100 text-gray-700 hover:text-white border-gray-300 hover:border-transparent'
+                          : 'bg-white text-gray-700 hover:text-white border-gray-400 hover:border-transparent shadow-md'
                       }`}
                     >
                       <span className="relative z-10">{skill}</span>
@@ -619,10 +623,10 @@ const Portfolio = () => {
                 Skills Overview
               </span>
             </h3>
-            <div className={`max-w-3xl mx-auto backdrop-blur-lg rounded-2xl p-8 border ${
+            <div className={`max-w-3xl mx-auto backdrop-blur-lg rounded-2xl p-8 border transition-all duration-300 ${
               theme === 'dark'
                 ? 'bg-gray-900/50 border-gray-800'
-                : 'bg-white/70 border-gray-200 shadow-lg'
+                : 'bg-white/90 border-gray-300 shadow-xl'
             }`}>
               <SkillsChart theme={theme} />
             </div>
@@ -650,10 +654,10 @@ const Portfolio = () => {
               {/* Experience items */}
               <div className="space-y-12">
                 <div className="relative flex items-center md:justify-between">
-                  <div className={`backdrop-blur-lg rounded-2xl p-6 md:p-8 border w-full md:w-5/12 ml-8 md:ml-0 ${
+                  <div className={`backdrop-blur-lg rounded-2xl p-6 md:p-8 border w-full md:w-5/12 ml-8 md:ml-0 transition-all duration-300 ${
                     theme === 'dark'
                       ? 'bg-gray-900/50 border-gray-800'
-                      : 'bg-white/70 border-gray-200 shadow-lg'
+                      : 'bg-white/90 border-gray-300 shadow-xl'
                   }`}>
                     <h3 className="text-xl font-semibold mb-2">Backend/API Engineering</h3>
                     <p className="text-cyan-500 mb-3">KFintech (WebileApps)</p>
@@ -683,8 +687,8 @@ const Portfolio = () => {
             </div>
             
             {/* Achievements */}
-            <div className={`mt-16 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl p-8 border ${
-              theme === 'dark' ? 'border-cyan-500/20' : 'border-cyan-400/30 shadow-lg'
+            <div className={`mt-16 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl p-8 border transition-all duration-300 ${
+              theme === 'dark' ? 'border-cyan-500/20' : 'border-cyan-400/40 shadow-xl bg-white/60'
             }`}>
               <h3 className="text-2xl font-semibold mb-6 text-center">Key Achievements</h3>
               <div className="grid md:grid-cols-3 gap-6 text-center">
