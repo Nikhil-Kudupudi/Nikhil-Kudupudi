@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Download, ExternalLink, Database, Brain, BarChart3, Cloud, Code2, ChevronDown, Menu, X, Filter, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ExternalLink, Database, Brain, BarChart3, Cloud, Code2, ChevronDown, Menu, X, Filter, Sparkles, Moon, Sun } from 'lucide-react';
 import DataGlobe from './DataGlobe';
 import ParticleNetwork from './ParticleNetwork';
 import SkillsChart from './SkillsChart';
@@ -12,7 +12,25 @@ const LoadingSpinner = () => (
       <div className="w-16 h-16 border-4 border-gray-700 border-t-cyan-400 rounded-full animate-spin" />
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-8 h-8 bg-gray-950 rounded-full" />
-      </div>
+        {/* Floating Theme Toggle Button */}
+      <button
+        onClick={toggleTheme}
+        className={`fixed bottom-8 right-8 p-4 rounded-full transition-all duration-300 transform hover:scale-110 z-50 ${
+          theme === 'dark'
+            ? 'bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 shadow-lg shadow-yellow-400/50'
+            : 'bg-gradient-to-r from-purple-400 to-blue-400 hover:from-purple-300 hover:to-blue-300 shadow-lg shadow-purple-400/50'
+        }`}
+        title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+      >
+        <div className="relative">
+          {theme === 'dark' ? (
+            <Sun size={24} className="text-gray-900 animate-pulse" />
+          ) : (
+            <Moon size={24} className="text-white animate-pulse" />
+          )}
+        </div>
+      </button>
+    </div>
     </div>
   </div>
 );
@@ -23,6 +41,21 @@ const Portfolio = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [projectFilter, setProjectFilter] = useState('All');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+    setTheme(savedTheme);
+    document.documentElement.classList.toggle('light', savedTheme === 'light');
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('portfolio-theme', newTheme);
+    document.documentElement.classList.toggle('light', newTheme === 'light');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,24 +145,36 @@ const Portfolio = () => {
     : projects.filter(project => project.tags.includes(projectFilter));
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white overflow-x-hidden">
+    <div className={`min-h-screen overflow-x-hidden transition-colors duration-300 ${
+      theme === 'dark' ? 'bg-gray-950 text-white' : 'bg-slate-100 text-gray-900'
+    }`}>
       {/* Add Particle Network */}
-      <ParticleNetwork />
+      <ParticleNetwork theme={theme} />
       
       {/* Dynamic Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-gray-950 to-purple-950/20" />
+        <div className={`absolute inset-0 transition-colors duration-300 ${
+          theme === 'dark' 
+            ? 'bg-gradient-to-br from-blue-950/20 via-gray-950 to-purple-950/20' 
+            : 'bg-gradient-to-br from-blue-200/20 via-slate-100 to-purple-200/20'
+        }`} />
         <div 
           className="absolute inset-0 opacity-30"
           style={{
-            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1) 0%, transparent 50%)`
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, ${
+              theme === 'dark' ? 'rgba(59, 130, 246, 0.1)' : 'rgba(59, 130, 246, 0.05)'
+            } 0%, transparent 50%)`
           }}
         />
         {/* Simple grid pattern using CSS */}
         <div 
           className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+            backgroundImage: `linear-gradient(${
+              theme === 'dark' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)'
+            } 1px, transparent 1px), linear-gradient(90deg, ${
+              theme === 'dark' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)'
+            } 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }}
         />
@@ -137,11 +182,15 @@ const Portfolio = () => {
 
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-gray-950/90 backdrop-blur-xl py-4 border-b border-gray-800' : 'bg-transparent py-6'
+        scrollY > 50 
+          ? theme === 'dark'
+            ? 'bg-gray-950/90 backdrop-blur-xl py-4 border-b border-gray-800' 
+            : 'bg-white/90 backdrop-blur-xl py-4 border-b border-gray-200 shadow-sm'
+          : 'bg-transparent py-6'
       }`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold group cursor-pointer">
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent transition-all duration-300 group-hover:from-cyan-400 group-hover:to-purple-400">
               NK
             </span>
           </h1>
@@ -152,14 +201,36 @@ const Portfolio = () => {
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`capitalize transition-all duration-300 hover:text-cyan-400 ${
-                  activeSection === section ? 'text-cyan-400' : 'text-gray-300'
+                className={`capitalize transition-all duration-300 relative group ${
+                  activeSection === section 
+                    ? 'text-cyan-400' 
+                    : theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
                 }`}
               >
-                {section}
+                <span className="relative z-10">{section}</span>
+                <span className={`absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md blur-md ${
+                  activeSection === section ? 'opacity-50' : ''
+                }`} />
               </button>
             ))}
-            <button className="ml-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 flex items-center gap-2" onClick={() => window.open('https://docs.google.com/document/d/1gz0Ox3_rSy_5jd6ys_9YmfT-UMf_luCs/edit?usp=sharing&ouid=115419692824155437603&rtpof=true&sd=true', '_blank')}>
+            
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-lg transition-all duration-300 transform hover:scale-110 ${
+                theme === 'dark'
+                  ? 'bg-gray-800 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-orange-400 text-yellow-400 hover:text-white hover:shadow-lg hover:shadow-yellow-400/25'
+                  : 'bg-gray-200 hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 text-gray-700 hover:text-white hover:shadow-lg hover:shadow-purple-400/25'
+              }`}
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            
+            <button 
+              className="ml-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 flex items-center gap-2 text-white"
+              onClick={() => window.open('https://docs.google.com/document/d/1gz0Ox3_rSy_5jd6ys_9YmfT-UMf_luCs/edit?usp=sharing&ouid=115419692824155437603&rtpof=true&sd=true', '_blank')}
+            >
               <Download size={16} />
               Resume
             </button>
@@ -168,7 +239,7 @@ const Portfolio = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white"
+            className={`md:hidden ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -176,7 +247,11 @@ const Portfolio = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-gray-950/95 backdrop-blur-xl border-b border-gray-800">
+          <div className={`md:hidden absolute top-full left-0 w-full backdrop-blur-xl border-b ${
+            theme === 'dark'
+              ? 'bg-gray-950/95 border-gray-800'
+              : 'bg-white/95 border-gray-200'
+          }`}>
             <div className="flex flex-col p-6 space-y-4">
               {['home', 'about', 'projects', 'skills', 'experience', 'contact'].map((section) => (
                 <button
@@ -187,7 +262,21 @@ const Portfolio = () => {
                   {section}
                 </button>
               ))}
-              <button className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg text-center">
+              
+              {/* Mobile Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className={`flex items-center gap-2 p-2 rounded-lg ${
+                  theme === 'dark'
+                    ? 'bg-gray-800 text-yellow-400'
+                    : 'bg-gray-200 text-gray-700'
+                }`}
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+              </button>
+              
+              <button className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg text-center text-white">
                 Download Resume
               </button>
             </div>
@@ -206,42 +295,72 @@ const Portfolio = () => {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold">
-              <span className="block text-gray-300 mb-2">Nikhil Kudupudi</span>
+              <span className={`block mb-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                Nikhil Kudupudi
+              </span>
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
                 Data Analytics Engineer
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto">
+            <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${
+              theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            }`}>
               Building scalable data platforms, real-time streaming pipelines, and ML-driven insights
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 pt-8">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300"
+                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300 text-white"
               >
                 View Projects
               </button>
-              <button className="px-8 py-3 border border-cyan-500 rounded-lg font-semibold hover:bg-cyan-500/10 transition-all duration-300">
+              <button className={`px-8 py-3 border border-cyan-500 rounded-lg font-semibold transition-all duration-300 ${
+                theme === 'dark' 
+                  ? 'hover:bg-cyan-500/10 text-white' 
+                  : 'hover:bg-cyan-500/10 text-gray-700'
+              }`}>
                 Download Resume
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-3 border border-gray-700 rounded-lg font-semibold hover:border-cyan-500 transition-all duration-300"
+                className={`px-8 py-3 border rounded-lg font-semibold transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'border-gray-700 hover:border-cyan-500 text-white'
+                    : 'border-gray-300 hover:border-cyan-500 text-gray-700'
+                }`}
               >
                 Contact
               </button>
             </div>
             
             <div className="flex justify-center space-x-6 pt-8">
-              <a href="#" className="transform hover:scale-110 transition-transform">
-                <Github className="w-8 h-8 text-gray-400 hover:text-cyan-400" />
+              <a 
+                href="https://github.com/Nikhil-Kudupudi" 
+                className="relative group transform hover:scale-110 transition-transform"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-800 rounded-full opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
+                <Github className={`relative w-8 h-8 transition-colors duration-300 ${
+                  theme === 'dark' ? 'text-gray-400 group-hover:text-white' : 'text-gray-600 group-hover:text-white'
+                }`} />
               </a>
-              <a href="#" className="transform hover:scale-110 transition-transform">
-                <Linkedin className="w-8 h-8 text-gray-400 hover:text-cyan-400" />
+              <a 
+                href="https://linkedin.com/in/nikhilkudupudi" 
+                className="relative group transform hover:scale-110 transition-transform"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
+                <Linkedin className={`relative w-8 h-8 transition-colors duration-300 ${
+                  theme === 'dark' ? 'text-gray-400 group-hover:text-white' : 'text-gray-600 group-hover:text-white'
+                }`} />
               </a>
-              <a href="#" className="transform hover:scale-110 transition-transform">
-                <Mail className="w-8 h-8 text-gray-400 hover:text-cyan-400" />
+              <a 
+                href="mailto:nikhil.kudupudi@example.com" 
+                className="relative group transform hover:scale-110 transition-transform"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-pink-500 rounded-full opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
+                <Mail className={`relative w-8 h-8 transition-colors duration-300 ${
+                  theme === 'dark' ? 'text-gray-400 group-hover:text-white' : 'text-gray-600 group-hover:text-white'
+                }`} />
               </a>
             </div>
             
@@ -260,10 +379,12 @@ const Portfolio = () => {
       {/* Tech Stack Carousel */}
       <section className="relative py-12 overflow-hidden">
         <div className="container mx-auto px-6 z-10">
-          <h3 className="text-2xl font-semibold text-center mb-8 text-gray-400">
+          <h3 className={`text-2xl font-semibold text-center mb-8 ${
+            theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             Technologies I Work With
           </h3>
-          <TechCarousel />
+          <TechCarousel theme={theme} />
         </div>
       </section>
 
@@ -276,34 +397,54 @@ const Portfolio = () => {
             </span>
           </h2>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-8 md:p-12 border border-gray-800" 
+            <div className={`backdrop-blur-lg rounded-2xl p-8 md:p-12 border transition-all duration-300 ${
+              theme === 'dark'
+                ? 'bg-gray-900/50 border-gray-800'
+                : 'bg-white/80 border-gray-300 shadow-xl'
+            }`} 
                  style={{
-                   boxShadow: 'inset 0 0 0 1px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)'
+                   boxShadow: theme === 'dark' 
+                     ? 'inset 0 0 0 1px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)'
+                     : '0 10px 40px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(59, 130, 246, 0.2)'
                  }}>
-              <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                I'm a Data Analytics Engineer passionate about building <span className="text-cyan-400 font-semibold">scalable data platforms</span>, <span className="text-cyan-400 font-semibold">real-time streaming pipelines</span>, and integrating <span className="text-cyan-400 font-semibold">ML-driven insights</span> into end-to-end workflows. With a solid foundation in Python, SQL, Spark, Kafka, and cloud platforms (AWS, GCP), I bridge the gap between raw data and actionable intelligence.
+              <p className={`text-lg leading-relaxed mb-6 ${
+                theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+              }`}>
+                I'm a Data Analytics Engineer passionate about building <span className="text-cyan-500 font-semibold">scalable data platforms</span>, <span className="text-cyan-500 font-semibold">real-time streaming pipelines</span>, and integrating <span className="text-cyan-500 font-semibold">ML-driven insights</span> into end-to-end workflows. With a solid foundation in Python, SQL, Spark, Kafka, and cloud platforms (AWS, GCP), I bridge the gap between raw data and actionable intelligence.
               </p>
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center group">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Database className="w-10 h-10 text-cyan-400" />
+                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                    theme === 'light' && 'border border-blue-200 shadow-lg'
+                  }`}>
+                    <Database className="w-10 h-10 text-cyan-500" />
                   </div>
                   <h3 className="font-semibold text-lg">Data Engineering</h3>
-                  <p className="text-gray-400 text-sm mt-2">Scalable pipelines & ETL</p>
+                  <p className={`text-sm mt-2 ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                  }`}>Scalable pipelines & ETL</p>
                 </div>
                 <div className="text-center group">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Brain className="w-10 h-10 text-purple-400" />
+                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                    theme === 'light' && 'border border-purple-200 shadow-lg'
+                  }`}>
+                    <Brain className="w-10 h-10 text-purple-500" />
                   </div>
                   <h3 className="font-semibold text-lg">Data Science</h3>
-                  <p className="text-gray-400 text-sm mt-2">ML & NLP solutions</p>
+                  <p className={`text-sm mt-2 ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                  }`}>ML & NLP solutions</p>
                 </div>
                 <div className="text-center group">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <BarChart3 className="w-10 h-10 text-green-400" />
+                  <div className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                    theme === 'light' && 'border border-green-200 shadow-lg'
+                  }`}>
+                    <BarChart3 className="w-10 h-10 text-green-500" />
                   </div>
                   <h3 className="font-semibold text-lg">Data Analytics</h3>
-                  <p className="text-gray-400 text-sm mt-2">Insights & visualization</p>
+                  <p className={`text-sm mt-2 ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                  }`}>Insights & visualization</p>
                 </div>
               </div>
             </div>
@@ -329,7 +470,9 @@ const Portfolio = () => {
                 className={`px-6 py-2 rounded-full transition-all duration-300 ${
                   projectFilter === filter
                     ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-cyan-500/25'
-                    : 'bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700'
+                    : theme === 'dark'
+                      ? 'bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700'
+                      : 'bg-gray-200 text-gray-600 hover:text-gray-900 hover:bg-gray-300'
                 }`}
               >
                 <Filter size={16} className="inline mr-2" />
@@ -342,32 +485,46 @@ const Portfolio = () => {
             {filteredProjects.map((project, index) => (
               <div
                 key={project.title}
-                className="group relative bg-gray-900/50 backdrop-blur-lg rounded-2xl overflow-hidden border border-gray-800 hover:border-cyan-500/50 transition-all duration-300"
+                className={`group relative backdrop-blur-lg rounded-2xl overflow-hidden border transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'bg-gray-900/50 border-gray-800 hover:border-cyan-500/50'
+                    : 'bg-white/90 border-gray-300 hover:border-cyan-500 shadow-xl hover:shadow-2xl'
+                }`}
               >
                 <div className="p-8">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-cyan-300 rounded-full text-sm"
+                        className={`px-3 py-1 rounded-full text-sm font-medium ${
+                          theme === 'dark'
+                            ? 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-cyan-300'
+                            : 'bg-gradient-to-r from-blue-500/30 to-cyan-500/30 text-cyan-700 border border-cyan-300'
+                        }`}
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                   
-                  <h3 className="text-2xl font-semibold mb-3 group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-2xl font-semibold mb-3 group-hover:text-cyan-500 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-6">{project.description}</p>
+                  <p className={`mb-6 ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                  }`}>{project.description}</p>
                   
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-500 mb-2">Key Highlights</h4>
+                      <h4 className={`text-sm font-semibold mb-2 ${
+                        theme === 'dark' ? 'text-gray-500' : 'text-gray-500'
+                      }`}>Key Highlights</h4>
                       <ul className="space-y-1">
                         {project.highlights.map((highlight, i) => (
-                          <li key={i} className="text-sm text-gray-300 flex items-start">
-                            <span className="text-cyan-400 mr-2">▸</span>
+                          <li key={i} className={`text-sm flex items-start ${
+                            theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                          }`}>
+                            <span className="text-cyan-500 mr-2">▸</span>
                             {highlight}
                           </li>
                         ))}
@@ -375,12 +532,18 @@ const Portfolio = () => {
                     </div>
                     
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-500 mb-2">Tech Stack</h4>
+                      <h4 className={`text-sm font-semibold mb-2 ${
+                        theme === 'dark' ? 'text-gray-500' : 'text-gray-500'
+                      }`}>Tech Stack</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech) => (
                           <span
                             key={tech}
-                            className="px-2 py-1 bg-gray-800 text-gray-300 rounded text-xs"
+                            className={`px-2 py-1 rounded text-xs transition-all duration-300 ${
+                              theme === 'dark'
+                                ? 'bg-gray-800 text-gray-300'
+                                : 'bg-gray-700 text-gray-100'
+                            }`}
                           >
                             {tech}
                           </span>
@@ -389,21 +552,18 @@ const Portfolio = () => {
                     </div>
                   </div>
                   
-                  <div className="flex space-x-4 mt-6 pt-6 border-t border-gray-800">
+                  <div className={`flex space-x-4 mt-6 pt-6 border-t ${
+                    theme === 'dark' ? 'border-gray-800' : 'border-gray-200'
+                  }`}>
                     <a
                       href={project.github}
-                      className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors"
+                      className={`flex items-center space-x-2 hover:text-cyan-500 transition-colors ${
+                        theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                      }`}
                     >
                       <Github size={20} />
                       <span>Code</span>
                     </a>
-                    {/* <a
-                      href={project.live}
-                      className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors"
-                    >
-                      <ExternalLink size={20} />
-                      <span>Live Demo</span>
-                    </a> */}
                   </div>
                 </div>
                 
@@ -425,21 +585,30 @@ const Portfolio = () => {
           </h2>
           <div className="max-w-5xl mx-auto space-y-8">
             {Object.entries(techStack).map(([category, skills]) => (
-              <div key={category} className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-800">
+              <div key={category} className={`backdrop-blur-lg rounded-2xl p-6 border transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'bg-gray-900/50 border-gray-800'
+                  : 'bg-white/90 border-gray-300 shadow-xl'
+              }`}>
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  {category === 'Data Engineering' && <Database className="w-6 h-6 mr-3 text-cyan-400" />}
-                  {category === 'Data Analytics' && <BarChart3 className="w-6 h-6 mr-3 text-green-400" />}
-                  {category === 'Data Science & ML' && <Brain className="w-6 h-6 mr-3 text-purple-400" />}
-                  {category === 'Cloud & DevOps' && <Cloud className="w-6 h-6 mr-3 text-blue-400" />}
+                  {category === 'Data Engineering' && <Database className="w-6 h-6 mr-3 text-cyan-500" />}
+                  {category === 'Data Analytics' && <BarChart3 className="w-6 h-6 mr-3 text-green-500" />}
+                  {category === 'Data Science & ML' && <Brain className="w-6 h-6 mr-3 text-purple-500" />}
+                  {category === 'Cloud & DevOps' && <Cloud className="w-6 h-6 mr-3 text-blue-500" />}
                   {category}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-4 py-2 bg-gray-800/50 rounded-lg text-gray-300 hover:bg-gray-700/50 hover:text-white transition-all duration-300 border border-gray-700 hover:border-gray-600"
+                      className={`px-4 py-2 rounded-lg transition-all duration-300 border relative overflow-hidden group cursor-pointer ${
+                        theme === 'dark'
+                          ? 'bg-gray-800/50 text-gray-300 hover:text-white border-gray-700 hover:border-transparent'
+                          : 'bg-white text-gray-700 hover:text-white border-gray-400 hover:border-transparent shadow-md'
+                      }`}
                     >
-                      {skill}
+                      <span className="relative z-10">{skill}</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </span>
                   ))}
                 </div>
@@ -454,8 +623,12 @@ const Portfolio = () => {
                 Skills Overview
               </span>
             </h3>
-            <div className="max-w-3xl mx-auto bg-gray-900/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-800">
-              <SkillsChart />
+            <div className={`max-w-3xl mx-auto backdrop-blur-lg rounded-2xl p-8 border transition-all duration-300 ${
+              theme === 'dark'
+                ? 'bg-gray-900/50 border-gray-800'
+                : 'bg-white/90 border-gray-300 shadow-xl'
+            }`}>
+              <SkillsChart theme={theme} />
             </div>
           </div>
         </div>
@@ -472,50 +645,70 @@ const Portfolio = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-500/50 to-purple-500/50" />
+              <div className={`absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b ${
+                theme === 'dark'
+                  ? 'from-cyan-500/50 to-purple-500/50'
+                  : 'from-cyan-400/50 to-purple-400/50'
+              }`} />
               
               {/* Experience items */}
               <div className="space-y-12">
                 <div className="relative flex items-center md:justify-between">
-                  <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-gray-800 w-full md:w-5/12 ml-8 md:ml-0">
+                  <div className={`backdrop-blur-lg rounded-2xl p-6 md:p-8 border w-full md:w-5/12 ml-8 md:ml-0 transition-all duration-300 ${
+                    theme === 'dark'
+                      ? 'bg-gray-900/50 border-gray-800'
+                      : 'bg-white/90 border-gray-300 shadow-xl'
+                  }`}>
                     <h3 className="text-xl font-semibold mb-2">Backend/API Engineering</h3>
-                    <p className="text-cyan-400 mb-3">KFintech (WebileApps)</p>
-                    <ul className="text-gray-300 space-y-2">
+                    <p className="text-cyan-500 mb-3">KFintech (WebileApps)</p>
+                    <ul className={`space-y-2 ${
+                      theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-2">▸</span>
+                        <span className="text-green-500 mr-2">▸</span>
                         15% faster onboarding pipelines
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-2">▸</span>
+                        <span className="text-green-500 mr-2">▸</span>
                         Automated email & alert systems
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-2">▸</span>
+                        <span className="text-green-500 mr-2">▸</span>
                         Client-agnostic scalable backend with data-driven risk model integration
                       </li>
                     </ul>
                   </div>
                   {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-cyan-400 rounded-full border-4 border-gray-950" />
+                  <div className={`absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-cyan-400 rounded-full border-4 ${
+                    theme === 'dark' ? 'border-gray-950' : 'border-gray-50'
+                  }`} />
                 </div>
               </div>
             </div>
             
             {/* Achievements */}
-            <div className="mt-16 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl p-8 border border-cyan-500/20">
+            <div className={`mt-16 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl p-8 border transition-all duration-300 ${
+              theme === 'dark' ? 'border-cyan-500/20' : 'border-cyan-400/40 shadow-xl bg-white/60'
+            }`}>
               <h3 className="text-2xl font-semibold mb-6 text-center">Key Achievements</h3>
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-cyan-400 mb-2">RAG</div>
-                  <p className="text-gray-300">Led RAG-based chatbot with Prefect-AI orchestration</p>
+                  <div className="text-3xl font-bold text-cyan-500 mb-2">RAG</div>
+                  <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
+                    Led RAG-based chatbot with Prefect-AI orchestration
+                  </p>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-purple-400 mb-2">1000s</div>
-                  <p className="text-gray-300">Daily records ingested via dynamic ETL pipelines</p>
+                  <div className="text-3xl font-bold text-purple-500 mb-2">1000s</div>
+                  <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
+                    Daily records ingested via dynamic ETL pipelines
+                  </p>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-green-400 mb-2">Real-time</div>
-                  <p className="text-gray-300">Dashboards influencing business decisions</p>
+                  <div className="text-3xl font-bold text-green-500 mb-2">Real-time</div>
+                  <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
+                    Dashboards influencing business decisions
+                  </p>
                 </div>
               </div>
             </div>
@@ -532,34 +725,46 @@ const Portfolio = () => {
             </span>
           </h2>
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-xl text-gray-300 mb-8">
+            <p className={`text-xl mb-8 ${
+              theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               I'm always open to discussing data engineering challenges, ML innovations, or collaboration opportunities.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="mailto:nikhil.kudupudi@example.com"
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-cyan-500 px-8 py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-cyan-500 px-8 py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300 text-white"
               >
                 <Mail size={20} />
                 <span>Say Hello</span>
               </a>
               <a
                 href="https://linkedin.com/in/nikhilkudupudi"
-                className="inline-flex items-center space-x-2 border border-cyan-500 px-8 py-4 rounded-lg font-semibold hover:bg-cyan-500/10 transition-all duration-300"
+                className={`inline-flex items-center space-x-2 border border-cyan-500 px-8 py-4 rounded-lg font-semibold transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'hover:bg-cyan-500/10 text-white'
+                    : 'hover:bg-cyan-500/10 text-gray-700'
+                }`}
               >
                 <Linkedin size={20} />
                 <span>LinkedIn</span>
               </a>
               <a
                 href="https://github.com/Nikhil-Kudupudi"
-                className="inline-flex items-center space-x-2 border border-gray-700 px-8 py-4 rounded-lg font-semibold hover:border-cyan-500 transition-all duration-300"
+                className={`inline-flex items-center space-x-2 border px-8 py-4 rounded-lg font-semibold transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'border-gray-700 hover:border-cyan-500 text-white'
+                    : 'border-gray-300 hover:border-cyan-500 text-gray-700'
+                }`}
               >
                 <Github size={20} />
                 <span>GitHub</span>
               </a>
             </div>
             
-            <div className="mt-12 text-gray-400">
+            <div className={`mt-12 ${
+              theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            }`}>
               <p>nikhilkudupudi.live</p>
             </div>
           </div>
