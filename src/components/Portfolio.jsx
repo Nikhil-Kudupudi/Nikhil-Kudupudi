@@ -95,43 +95,88 @@ const Portfolio = () => {
   };
 
   const projects = [
-    {
-      title: 'NUBot – AI-powered University RAG Chatbot',
-      description: 'Scalable, Dockerized NLP chatbot using university content. GCP-native with orchestrated pipelines and real-time retrieval.',
-      tags: ['Data Science', 'MLOps'],
-      tech: ['RAG', 'MLflow', 'Prefect', 'Airflow', 'Streamlit', 'GCP', 'Docker'],
-      highlights: ['Real-time retrieval', 'Scalable architecture', 'Cloud-native deployment'],
-      github: 'https://github.com/Nikhil-Kudupudi/NUBot',
-      live: '#'
-    },
-    {
-      title: 'Reddit Data Engineering Pipeline',
-      description: 'PRAW-powered ETL with AWS infrastructure, cataloging with Glue, analytics-ready tables, and BI dashboards.',
-      tags: ['Data Engineering','Data Analytics'],
-      tech: ['Airflow', 'Celery', 'PostgreSQL', 'AWS S3', 'Glue', 'Redshift', 'Athena'],
-      highlights: ['1000s daily records', 'Automated ETL', 'BI Integration'],
-      github: 'https://github.com/Nikhil-Kudupudi/Reddit_DataEngineering',
-      live: '#'
-    },
-    {
-      title: 'Real-Time News Analytics',
-      description: 'End-to-end real-time pipeline with dynamic topic ingestion, sentiment/NLP analysis, and multi-platform visualizations.',
-      tags: ['Data Engineering', 'Data Science'],
-      tech: ['Kafka', 'Spark Streaming', 'NLP', 'dbt', 'Delta Lake', 'Sentiment Analysis'],
-      highlights: ['Real-time processing', 'Visual insights', 'Dynamic dashboards'],
-      github: 'https://github.com/Nikhil-Kudupudi/News-Analytics-pipeline',
-      live: '#'
-    },
-    {
-      title: 'Employment System Dashboard',
-      description: 'Backend for applicant onboarding with auto email alerts and risk modeling for investment recommendations.',
-      tags: ['Data Analytics', 'Backend'],
-      tech: ['API Engineering', 'Streamlit', 'Performance Tuning', 'Email Automation'],
-      highlights: ['15% faster onboarding', 'Automated alerts', 'Risk modeling'],
-      github: '#',
-      live: '#'
-    }
-  ];
+  {
+    "title": "Modular RAG Application",
+    "description": "Scalable, Dockerized NLP chatbot using configurable content sources. GCP-native with orchestrated pipelines and real-time retrieval.",
+    "tags": ["Data Science", "MLOps"],
+    "tech": ["RAG", "MLflow", "Prefect", "Airflow", "Streamlit", "GCP", "Docker"],
+    "highlights": ["Real-time retrieval", "Scalable architecture", "Cloud-native deployment"],
+    "github": "https://github.com/Nikhil-Kudupudi/NUBot",
+    "live": "#"
+  },
+  {
+    "title": "Reddit Data Engineering Pipeline",
+    "description": "PRAW-powered ETL with AWS infrastructure, cataloging with Glue, analytics-ready tables, and BI dashboards.",
+    "tags": ["Data Engineering", "Data Analytics"],
+    "tech": ["Airflow", "Celery", "PostgreSQL", "AWS S3", "Glue", "Redshift", "Athena"],
+    "highlights": ["1000s daily records", "Automated ETL", "BI Integration"],
+    "github": "https://github.com/Nikhil-Kudupudi/Reddit_DataEngineering",
+    "live": "#"
+  },
+  {
+    "title": "Real-Time News Analytics",
+    "description": "End-to-end real-time pipeline with dynamic topic ingestion, sentiment/NLP analysis, and multi-platform visualizations.",
+    "tags": ["Data Engineering", "Data Science"],
+    "tech": ["Kafka", "Spark Streaming", "NLP", "dbt", "Delta Lake", "Sentiment Analysis"],
+    "highlights": ["Real-time processing", "Visual insights", "Dynamic dashboards"],
+    "github": "https://github.com/Nikhil-Kudupudi/News-Analytics-pipeline",
+    "live": "#"
+  },
+  {
+    "title": "Employment System Dashboard",
+    "description": "Backend for applicant onboarding with auto email alerts and risk modeling for investment recommendations.",
+    "tags": ["Data Analytics", "Backend"],
+    "tech": ["API Engineering", "Streamlit", "Performance Tuning", "Email Automation"],
+    "highlights": ["15% faster onboarding", "Automated alerts", "Risk modeling"],
+    "github": "#",
+    "live": "#"
+  },
+  {
+    "title": "Bank Churn Analysis",
+    "description": "Built ML models and interactive dashboards to identify high-risk banking customers and enable proactive retention strategies.",
+    "tags": ["Data Science", "Data Analytics"],
+    "tech": ["Pandas", "Logistic Regression", "Tableau", "Matplotlib"],
+    "highlights": ["Feature engineering", "Customer segmentation", "Actionable insights"],
+    "github": "#",
+    "live": "#"
+  },
+  {
+    "title": "Crash Reporting Analytics",
+    "description": "Performed geo-temporal analysis of crash reports and visualized trends using advanced statistical and heatmap techniques.",
+    "tags": ["Data Analytics"],
+    "tech": ["Pandas", "Seaborn", "Matplotlib", "KDE", "Geo Analysis"],
+    "highlights": ["Crash pattern discovery", "Visual storytelling", "Safety planning"],
+    "github": "#",
+    "live": "#"
+  },
+  {
+    "title": "Crime Data Visualization",
+    "description": "Analyzed public crime data to uncover trends and built real-time dashboards using Power BI and Python.",
+    "tags": ["Data Analytics"],
+    "tech": ["Power BI", "Pandas", "NumPy", "Matplotlib"],
+    "highlights": ["Interactive dashboards", "Anomaly detection", "Trend analysis"],
+    "github": "#",
+    "live": "#"
+  },
+  {
+    "title": "Heart Disease Prediction with ML",
+    "description": "Applied multiple ML models on structured health data to predict heart disease, highlighting logistic regression’s edge in binary classification.",
+    "tags": ["Data Science", "ML"],
+    "tech": ["Scikit-learn", "XGBoost", "Pandas", "Matplotlib"],
+    "highlights": ["Model comparison", "Healthcare ML", "Metric-driven evaluation"],
+    "github": "https://github.com/Nikhil-Kudupudi/HeartDisease-prediction",
+    "live": "#"
+  },
+  {
+    "title": "Autonomous Car Steering Simulation",
+    "description": "Trained a CNN on Udacity simulator data to predict steering angles based on frame-by-frame image input.",
+    "tags": ["Deep Learning", "Computer Vision"],
+    "tech": ["CNN", "Keras", "Udacity Simulator", "Python"],
+    "highlights": ["Simulation data", "CNN architecture", "Driving behavior modeling"],
+    "github": "#",
+    "live": "#"
+  }
+];
 
   const techStack = {
     'Data Engineering': ['Kafka', 'Spark Streaming', 'Airflow', 'Prefect', 'dbt', 'Delta Lake', 'Apache Hadoop', 'Glue', 'Athena', 'Redshift'],
