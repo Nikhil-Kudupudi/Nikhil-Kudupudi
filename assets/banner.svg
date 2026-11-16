@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="280" viewBox="0 0 900 280" role="img" aria-labelledby="t d">
+  <title id="t">Nikhil Kudupudi</title>
+  <desc id="d">Data and software engineer. Building the bridge from POCs to intelligent systems.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#101C33"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#06B6D4" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#1E2D4A"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="280" rx="14" fill="url(#bg)"/>
+  <rect width="900" height="280" rx="14" fill="url(#dots)" opacity="0.7"/>
+
+  <!-- Title block -->
+  <text x="56" y="92" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" fill="#F1F5F9" letter-spacing="-1">Nikhil Kudupudi</text>
+  <text x="58" y="124" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#06B6D4">Data &amp; Software Engineer</text>
+  <text x="58" y="152" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" fill="#94A3B8">Building the bridge from POCs to intelligent systems.</text>
+
+  <!-- Automation ladder: where it started to where it's going -->
+  <line x1="80" y1="224" x2="800" y2="224" stroke="url(#line)" stroke-width="2"/>
+
+  <g font-family="'SFMono-Regular', Consolas, 'Courier New', monospace" font-size="13" text-anchor="middle">
+    <circle cx="80"  cy="224" r="6" fill="#0B1220" stroke="#475569" stroke-width="2"/>
+    <circle cx="260" cy="224" r="6" fill="#0B1220" stroke="#64748B" stroke-width="2"/>
+    <circle cx="440" cy="224" r="6" fill="#0B1220" stroke="#94A3B8" stroke-width="2"/>
+    <circle cx="620" cy="224" r="6" fill="#0B1220" stroke="#22D3EE" stroke-width="2"/>
+    <circle cx="800" cy="224" r="7" fill="#06B6D4"/>
+    <circle cx="800" cy="224" r="13" fill="none" stroke="#06B6D4" stroke-opacity="0.35" stroke-width="2"/>
+
+    <text x="80"  y="252" fill="#64748B">cron jobs</text>
+    <text x="260" y="252" fill="#94A3B8">APIs</text>
+    <text x="440" y="252" fill="#CBD5E1">pipelines</text>
+    <text x="620" y="252" fill="#E2E8F0">AI agents</text>
+    <text x="800" y="252" fill="#22D3EE" font-weight="700">software factories</text>
+  </g>
+</svg>

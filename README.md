@@ -1,85 +1,89 @@
-# Hi, I'm Nikhil Kudupudi 👋
-
 <div align="center">
-  
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit_Site-06B6D4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://nikhil-kudupudi.github.io/Portfolio/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/kudupudi-nikhil-7aa0651b8)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nikhilkudupudi@gmail.com)
+
+<img src="assets/banner.svg" alt="Nikhil Kudupudi — Data & Software Engineer. Building the bridge from POCs to intelligent systems." width="100%">
+
+<br>
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-0B1220?style=for-the-badge&logo=googlechrome&logoColor=06B6D4)](https://nikhil-kudupudi.github.io/Portfolio/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0B1220?style=for-the-badge&labelColor=0B1220&color=0B1220&logoColor=06B6D4)](https://www.linkedin.com/in/kudupudi-nikhil-7aa0651b8/)
+[![Email](https://img.shields.io/badge/Email-0B1220?style=for-the-badge&logo=gmail&logoColor=06B6D4)](mailto:nikhilkudupudi@gmail.com)
+
+<br>
+
+| **20M+** | **88+** | **+25%** | **2.5+ yrs** |
+| :---: | :---: | :---: | :---: |
+| records matched | fintech clients served | workflow automation | building in production |
 
 </div>
 
-## 👨‍💻 About Me
+<br>
 
-I'm a **Data Analytics Engineer** passionate about building scalable data platforms and real-time streaming pipelines. I enjoy bridging the gap between raw data and actionable business insights, working at the intersection of data engineering and machine learning.
+## About
 
-When I'm not coding, you'll find me **watching YouTube videos** about new tech, exploring the latest tools in the data ecosystem, or working on side projects.
+I'm a data and software engineer who likes to build things end to end: backend, data and AI in one product. I've done that in finance, first as a backend engineer on a portfolio-management platform, then as a data engineer matching millions of addresses on AWS.
 
-## 💡 What I Do
+Right now I'm finishing an **M.S. in Data Analytics Engineering at Northeastern University** (GPA 3.9, Boston).
 
-I develop and design **systems for data problems** using multiple tech stacks. I believe in **iterative approaches** and solving challenges not just from a technical perspective, but from a **business perspective** too. I'm interested in understanding the *"why"* behind the data, not just the *"how"*.
+Automation is what hooked me. It started with cron jobs, moved to APIs, then data pipelines, then AI agents. Now I'm exploring **software factories**: systems that build and ship the software themselves.
 
-## 🛠️ Skills
+<br>
 
-### Data Engineering
-![Kafka](https://img.shields.io/badge/Kafka-000?style=flat-square&logo=apachekafka)
-![Spark](https://img.shields.io/badge/Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
-![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=Apache%20Airflow&logoColor=white)
-![dbt](https://img.shields.io/badge/dbt-FF6B6B?style=flat-square&logo=dbt&logoColor=white)
-![Delta Lake](https://img.shields.io/badge/Delta_Lake-003366?style=flat-square)
+## Selected work
 
-### Data Analytics
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
-![Tableau](https://img.shields.io/badge/Tableau-E97627?style=flat-square&logo=Tableau&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
-![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)
+| Project | What it does | Stack |
+| :-- | :-- | :-- |
+| **[SEC EDGAR Financial Lakehouse](https://github.com/Nikhil-Kudupudi/SEC_EDGAR)** | Medallion pipeline that turns SEC filings into executive KPIs. Every dashboard number traces back to its source filing. | `PySpark` `Polars` `S3` `Parquet` `Streamlit` |
+| **Job Copilot** | Paste a job description. Get a repeatable fit score and a tailored one-page resume, logged to a sheet. | `Cloudflare` `LLM agents` `Structured outputs` |
+| **Real-Time News Analytics** | Streaming pipeline with live topic ingestion and sentiment analysis. | `Kafka` `Spark Streaming` `Delta Lake` `dbt` |
+| **Modular RAG Chatbot** | Dockerized, GCP-native RAG app with configurable content sources. | `Prefect` `MLflow` `GCP` `Docker` |
+| **Reddit Data Pipeline** | ETL over thousands of daily records, ending in BI-ready tables. | `Airflow` `S3` `Glue` `Redshift` |
 
-### Data Science & ML
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit_learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
-![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white)
+More on the [portfolio](https://nikhil-kudupudi.github.io/Portfolio/#projects).
 
-### Cloud & DevOps
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
-![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=google-cloud&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
+<br>
 
-### Backend Development
-![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
-![API](https://img.shields.io/badge/REST_API-009688?style=flat-square&logo=fastapi&logoColor=white)
+## Where I've worked
 
-## 🚀 Projects
+| | Role | |
+| :-- | :-- | :-- |
+| **Plymouth Rock Assurance** | Data Engineer | Boston · 2026 |
+| **KFin Technologies** | Fintech Engineer | Hyderabad · 2023 – 2024 |
+| **WebileApps** | Software Engineer | Hyderabad · 2022 – 2023 |
 
-- **🤖 NUBot**: AI-powered RAG chatbot with MLflow, Prefect, and GCP
-- **📊 Reddit Data Pipeline**: ETL pipeline using Airflow, AWS S3, Glue, and Redshift
-- **📰 Real-Time News Analytics**: Kafka + Spark Streaming with NLP and sentiment analysis
-- **💼 Employment System Dashboard**: Streamlit-based dashboard with performance optimization
+<br>
 
-## 🌱 Always Learning
-
-I'm constantly exploring new technologies and staying updated with the latest in data engineering, machine learning, and cloud architecture. Currently diving into stream processing, time series analysis, and data mesh architectures.
-
-## 📫 Let's Connect!
-
-Interested to talk? I'd love to **connect, learn from you, and share what I know**.
+## Stack
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-nikhil--kudupudi.github.io-06B6D4?style=for-the-badge)](https://nikhil-kudupudi.github.io/Portfolio/)
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Nikhil_Kudupudi-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/kudupudi-nikhil-7aa0651b8)
-[![Email](https://img.shields.io/badge/Email-nikhilkudupudi@gmail.com-D14836?style=for-the-badge&logo=gmail)](mailto:nikhilkudupudi@gmail.com)
+![Python](https://img.shields.io/badge/Python-0B1220?style=flat-square&logo=python&logoColor=06B6D4)
+![SQL](https://img.shields.io/badge/SQL-0B1220?style=flat-square&logo=postgresql&logoColor=06B6D4)
+![TypeScript](https://img.shields.io/badge/TypeScript-0B1220?style=flat-square&logo=typescript&logoColor=06B6D4)
+![Kafka](https://img.shields.io/badge/Kafka-0B1220?style=flat-square&logo=apachekafka&logoColor=06B6D4)
+![Spark](https://img.shields.io/badge/Spark-0B1220?style=flat-square&logo=apachespark&logoColor=06B6D4)
+![Airflow](https://img.shields.io/badge/Airflow-0B1220?style=flat-square&logo=apacheairflow&logoColor=06B6D4)
+![dbt](https://img.shields.io/badge/dbt-0B1220?style=flat-square)
+![Snowflake](https://img.shields.io/badge/Snowflake-0B1220?style=flat-square&logo=snowflake&logoColor=06B6D4)
+![PyTorch](https://img.shields.io/badge/PyTorch-0B1220?style=flat-square&logo=pytorch&logoColor=06B6D4)
+![MLflow](https://img.shields.io/badge/MLflow-0B1220?style=flat-square&logo=mlflow&logoColor=06B6D4)
+![AWS](https://img.shields.io/badge/AWS-0B1220?style=flat-square)
+![GCP](https://img.shields.io/badge/GCP-0B1220?style=flat-square&logo=googlecloud&logoColor=06B6D4)
+![Cloudflare](https://img.shields.io/badge/Cloudflare-0B1220?style=flat-square&logo=cloudflare&logoColor=06B6D4)
+![Docker](https://img.shields.io/badge/Docker-0B1220?style=flat-square&logo=docker&logoColor=06B6D4)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0B1220?style=flat-square&logo=githubactions&logoColor=06B6D4)
 
 </div>
 
----
+<br>
+
+## Let's talk
+
+If you have a problem with clear requirements and need technical help, I'd like to hear about it. Open source, startups and enterprise work are all welcome.
 
 <div align="center">
-  
-*Building data solutions, one pipeline at a time* 🚀
+
+<br>
+
+*Built with intention.*
 
 </div>
